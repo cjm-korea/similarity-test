@@ -1,6 +1,10 @@
+"use client"
+
 import { FC } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/ui/Tabs'
 import SimpleBar from 'simplebar-react'
+import Code from '@/components/Code'
+import { nodejs, python } from '@/helpers/documentation-code'
 
 const DocumentationTabs: FC = () => {
     return (
@@ -10,10 +14,13 @@ const DocumentationTabs: FC = () => {
                 <TabsTrigger value='python'>Python</TabsTrigger>
             </TabsList>
             <TabsContent value='nodejs'>
-                {/* <SimpleBar></SimpleBar> */}
-                <Code />
+                <SimpleBar>
+                    <Code language='javascript' code={nodejs} show animated />
+                </SimpleBar>
             </TabsContent>
-            <TabsContent value='python'></TabsContent>
+            <TabsContent value='python'>
+                <Code language='python' code={python} show animated />
+            </TabsContent>
         </Tabs>
     )
 }
