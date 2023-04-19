@@ -33,7 +33,7 @@ export const authOptions: NextAuthOptions = {
         }),
     ],
     callbacks: {
-        async session({ token, session }) {
+        session({ token, session }) {
             if (token) {
                 session.user.id = token.id
                 session.user.name = token.name
@@ -44,7 +44,7 @@ export const authOptions: NextAuthOptions = {
             return session
         },
         async jwt({token, user}) {
-            const dbUser = await db
+            const dbUser = await db.
         }
     }
 }
